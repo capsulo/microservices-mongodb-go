@@ -13,7 +13,7 @@ type UserModel struct {
 	C *mongo.Collection
 }
 
-func (m *UserModel) Add() ([]models.User, error) {
+func (m *UserModel) All() ([]models.User, error) {
 	ctx := context.TODO()
 	var uu []models.User
 
@@ -57,6 +57,3 @@ func (m *UserModel) Delete(id string) (*mongo.DeleteResult, error) {
 	}
 	return m.C.DeleteOne(context.TODO(), bson.M{"_id": p})
 }
-
-
-
